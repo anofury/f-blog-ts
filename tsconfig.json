@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "es2015",
+		"jsx": "react",
+		"noEmit": true,
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"allowJs": true,
+		"baseUrl": "./",
+		"paths": {
+			"@comp/*": ["src/components/*"],
+		}
+	},
+	"include": [
+		"src/**/*",
+		"typings/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"build"
+	]
+}
