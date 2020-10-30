@@ -9,7 +9,7 @@ const COM_DIR = Path.resolve(__dirname, './common');
 
 module.exports = {
 	entry: {
-		index: Path.resolve(SRC_DIR, './index/index.tsx'),
+		main: Path.resolve(SRC_DIR, './main/main.tsx'),
 		siteConfig: Path.resolve(SRC_DIR, './site.config.js'),
 	},
 	output: {
@@ -60,7 +60,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: Path.resolve(COM_DIR, './index.html'),
-			title: '简简单单·可可爱爱',
+			title: 'waitting...',
 			inject: true,
 			timestamp: new Date().getTime(),
 			minify: {

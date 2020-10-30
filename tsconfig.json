@@ -14,11 +14,8 @@
 			"@comp/*": ["src/components/*"],
 		}
 	},
-	"include": [
-		"src/**/*",
-		"typings/**/*"
-	],
 	"exclude": [
+		"common",
 		"node_modules",
 		"build"
 	]
