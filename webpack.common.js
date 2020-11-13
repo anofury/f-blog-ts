@@ -1,16 +1,19 @@
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path');
 const SRC_DIR = Path.resolve(__dirname, './src');
-const BUILD_DIR = Path.resolve(__dirname, './build');
 const COM_DIR = Path.resolve(__dirname, './common');
+const BUILD_DIR = Path.resolve(__dirname, './build');
+const ARTICLE_DIR = Path.resolve(__dirname, './articles');
+const ARTICLE_BUILD_DIR = Path.resolve(__dirname, './build/articles');
+
+const { getArticleInfo } = require('./article.analyzer');
 
 module.exports = {
 	entry: {
-		main: Path.resolve(SRC_DIR, './main/main.tsx'),
-		siteConfig: Path.resolve(SRC_DIR, './site.config.js'),
+		blog: Path.resolve(SRC_DIR, './Blog.tsx'),
+		articleIndex: Path.resolve(__dirname, './article.index.js'),
 	},
 	output: {
 		path: BUILD_DIR,
@@ -55,6 +58,9 @@ module.exports = {
 					globOptions: {
 						ignore: ['**/ori/**'],
 					},
+				}, {
+					from: ARTICLE_DIR,
+					to: ARTICLE_BUILD_DIR
 				},
 			],
 		}),
@@ -71,11 +77,8 @@ module.exports = {
 			},
 			chunks: 'all',
 		}),
-		// new CleanWebpackPlugin({
-		// 	cleanStaleWebpackAssets: false,
-		// }),
 		new webpack.DefinePlugin({
-			WebpackDefiner: { test: 1, test2: 2 },
+			WebpackDefiner: JSON.stringify(getArticleInfo()),
 		}),
 	],
 	resolve: {

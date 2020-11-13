@@ -13,7 +13,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js --progress",
-    "type-check": "tsc --watch"
+    "type-check": "tsc --watch",
+    "new": "node article.creator.js"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

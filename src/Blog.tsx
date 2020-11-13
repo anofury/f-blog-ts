@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Main = function () {
+const Blog = function () {
     return (
         <>index</>
     )
 }
 
-ReactDOM.render(<Main />, document.getElementById('content'))
+ReactDOM.render(<Blog />, document.getElementById('content'))
